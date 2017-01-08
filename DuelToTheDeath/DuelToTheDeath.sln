@@ -3,6 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstract", "Abstract", "{3B67E41A-3853-4F8F-B1C1-F199CAB8FBE5}"
+	ProjectSection(SolutionItems) = preProject
+		Human.cs = Human.cs
+		Ork.cs = Ork.cs
+		Undead.cs = Undead.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{DA36975F-6754-4521-AC37-7E52F3F97172}"
+	ProjectSection(SolutionItems) = preProject
+		Constants.cs = Constants.cs
+		Validator.cs = Validator.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exeptions", "Exeptions", "{B7B51E16-BD14-48CD-9091-3196AB2C4541}"
+	ProjectSection(SolutionItems) = preProject
+		Exeptions.cs = Exeptions.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
