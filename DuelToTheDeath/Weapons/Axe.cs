@@ -1,10 +1,4 @@
-﻿using System;
-
-public class Axe
-{
-    
-}
-
+﻿
 public class Axe
 {
     private int attackPoints;
