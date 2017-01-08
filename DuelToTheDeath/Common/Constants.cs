@@ -1,6 +1,7 @@
-﻿using System;
+﻿namespace DuelToTheDeath.Common
+{ 
+    public class Constants
+    {
 
-public class Constants
-{
-
+    }
 }

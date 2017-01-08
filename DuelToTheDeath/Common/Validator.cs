@@ -1,5 +1,7 @@
-﻿using System;
+﻿namespace DuelToTheDeath.Common
+{
+    public class Validator
+    {
 
-public class Validator { 
-        
+    }
 }

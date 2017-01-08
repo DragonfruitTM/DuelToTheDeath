@@ -1,47 +1,49 @@
-﻿using System;
-
-public abstract class Human
+﻿
+namespace DuelToTheDeath.Race
 {
-    private string humanName;
-    private const int InitialHumanHitPoints = 700;
-    private const int InitialHumanDeffencePoints = 100;
-    private const int InitialHumanManaPoints = 200;
-    private const int InitialHumanManaRegeneration = 20;
-
-    public Human(string humanName)
+    public abstract class Human
     {
-        this.humanName = humanName;
-        this.HitPoints = InitialHumanHitPoints;
-        this.DeffencePoints = InitialHumanDeffencePoints;
-        this.ManaPoints = InitialHumanManaPoints;
-        this.ManaPoints = InitialHumanManaRegeneration;
-    }
+        private string humanName;
+        private const int InitialHumanHitPoints = 700;
+        private const int InitialHumanDeffencePoints = 100;
+        private const int InitialHumanManaPoints = 200;
+        private const int InitialHumanManaRegeneration = 20;
 
-    public string HumanName
-    {
-        get
+        public Human(string humanName)
         {
-            return this.humanName;
+            this.humanName = humanName;
+            this.HitPoints = InitialHumanHitPoints;
+            this.DeffencePoints = InitialHumanDeffencePoints;
+            this.ManaPoints = InitialHumanManaPoints;
+            this.ManaPoints = InitialHumanManaRegeneration;
         }
-        set
+
+        public string HumanName
         {
-            if (string.IsNullOrEmpty(value))
+            get
             {
-                throw new ArgumentException();
+                return this.humanName;
             }
-
-            if (value.Substring(0, 4) != "HuMn_")
+            set
             {
-                throw new ArgumentException();
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException();
+                }
+
+                if (value.Substring(0, 4) != "HuMn_")
+                {
+                    throw new ArgumentException();
+                }
+
+                this.humanName = value;
+
             }
-
-            this.humanName = value;
-
         }
-    }
 
-    public int HitPoints { get; set; }
-    public int DeffencePoints { get; set; }
-    public int ManaPoints { get; set; }
-    public int ManaRegeneration { get; set; }
+        public int HitPoints { get; set; }
+        public int DeffencePoints { get; set; }
+        public int ManaPoints { get; set; }
+        public int ManaRegeneration { get; set; }
+    }
 }

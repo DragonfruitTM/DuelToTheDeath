@@ -1,46 +1,47 @@
-﻿using System;
-
-public abstract class Undead
+﻿namespace DuelToTheDeath.Race
 {
-    private string undeadName;
-    private const int InitialUndeadHitPoints = 2000;
-    private const int InitialUndeadAttackPoints = 40;
-    private const int InitialUndeadDeffencePoints = 200;
-    private const int InitialUndeadHpDegeneration = 50;
-
-    public Undead(string undeadName)
+    public abstract class Undead
     {
-        this.undeadName = undeadName;
-        this.HitPoints = InitialUndeadHitPoints;
-        this.AttackPoints = InitialUndeadAttackPoints;
-        this.DeffencePoints = InitialUndeadDeffencePoints;
-        this.HpDegeneration = InitialUndeadHpDegeneration;
-    }
+        private string undeadName;
+        private const int InitialUndeadHitPoints = 2000;
+        private const int InitialUndeadAttackPoints = 40;
+        private const int InitialUndeadDeffencePoints = 200;
+        private const int InitialUndeadHpDegeneration = 50;
 
-    public string UndeadName
-    {
-        get
+        public Undead(string undeadName)
         {
-            return this.undeadName;
+            this.undeadName = undeadName;
+            this.HitPoints = InitialUndeadHitPoints;
+            this.AttackPoints = InitialUndeadAttackPoints;
+            this.DeffencePoints = InitialUndeadDeffencePoints;
+            this.HpDegeneration = InitialUndeadHpDegeneration;
         }
-        set
+
+        public string UndeadName
         {
-            if (string.IsNullOrEmpty(value))
+            get
             {
-                throw new ArgumentException();
+                return this.undeadName;
             }
-
-            if (value.Substring(0, 4) != "ZomB_")
+            set
             {
-                throw new ArgumentException();
-            }
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException();
+                }
 
-            this.undeadName = value;
+                if (value.Substring(0, 4) != "ZomB_")
+                {
+                    throw new ArgumentException();
+                }
+
+                this.undeadName = value;
+            }
         }
-    }
 
-    public int HitPoints { get; set; }
-    public int DeffencePoints { get; set; }
-    public int HpDegeneration { get; set; }
-    public int AttackPoints { get; set; }
+        public int HitPoints { get; set; }
+        public int DeffencePoints { get; set; }
+        public int HpDegeneration { get; set; }
+        public int AttackPoints { get; set; }
+    }
 }

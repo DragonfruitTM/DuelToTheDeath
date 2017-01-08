@@ -1,46 +1,47 @@
-﻿using System;
-
-public abstract class Ork
+﻿namespace DuelToTheDeath.Race
 {
-    private string orkName;
-    private const int InitialOrkHitPoints = 1000;
-    private const int InitialOrkAttackPoints = 20;
-    private const int InitialOrkDeffencePoints = 200;
-    private const int InitialOrkHpRegeneration = 20;
-
-    public Ork(string orkName)
+    public abstract class Ork
     {
-        this.OrkName = orkName;
-        this.HitPoints = InitialOrkHitPoints;
-        this.AttackPoints = InitialOrkAttackPoints;
-        this.DeffencePoints = InitialOrkDeffencePoints;
-        this.HPRegeneration = InitialOrkHpRegeneration;
-    }
+        private string orkName;
+        private const int InitialOrkHitPoints = 1000;
+        private const int InitialOrkAttackPoints = 20;
+        private const int InitialOrkDeffencePoints = 200;
+        private const int InitialOrkHpRegeneration = 20;
 
-    public string OrkName
-    {
-        get
+        public Ork(string orkName)
         {
-            return this.orkName;
+            this.OrkName = orkName;
+            this.HitPoints = InitialOrkHitPoints;
+            this.AttackPoints = InitialOrkAttackPoints;
+            this.DeffencePoints = InitialOrkDeffencePoints;
+            this.HPRegeneration = InitialOrkHpRegeneration;
         }
-        set
+
+        public string OrkName
         {
-            if (string.IsNullOrEmpty(value))
+            get
             {
-                throw new ArgumentException();
+                return this.orkName;
             }
-
-            if (value.Substring(0, 4) != "RAzN_")
+            set
             {
-                throw new ArgumentException();
-            }
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException();
+                }
 
-            this.orkName = value;
+                if (value.Substring(0, 4) != "RAzN_")
+                {
+                    throw new ArgumentException();
+                }
+
+                this.orkName = value;
+            }
         }
-    }
 
-    public int HitPoints { get; set; }
-    public int DeffencePoints { get; set; }
-    public int HPRegeneration { get; set; }
-    public int AttackPoints { get; set; }
+        public int HitPoints { get; set; }
+        public int DeffencePoints { get; set; }
+        public int HPRegeneration { get; set; }
+        public int AttackPoints { get; set; }
+    }
 }

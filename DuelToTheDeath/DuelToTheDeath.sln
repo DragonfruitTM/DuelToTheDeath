@@ -21,11 +21,40 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Exeptions", "Exeptions", "{
 		Common\Exeptions\Exeptions.cs = Common\Exeptions\Exeptions.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{F2F7CABD-16B4-4A76-8167-6AEAFE9312F5}"
+	ProjectSection(SolutionItems) = preProject
+		Classes\Mage.cs = Classes\Mage.cs
+		Classes\Rogue.cs = Classes\Rogue.cs
+		Classes\Warrior.cs = Classes\Warrior.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{E7CF8DF7-A583-406F-A7E3-1784C960AA65}"
+	ProjectSection(SolutionItems) = preProject
+		Interfaces\IMageSkills.cs = Interfaces\IMageSkills.cs
+		Interfaces\IRogueSkills.cs = Interfaces\IRogueSkills.cs
+		Interfaces\IWarriorSkills.cs = Interfaces\IWarriorSkills.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Weapons", "Weapons", "{2262D868-7521-495D-AC1B-E8517F8FFCD6}"
+	ProjectSection(SolutionItems) = preProject
+		Weapons\Axe.cs = Weapons\Axe.cs
+		Weapons\Bow.cs = Weapons\Bow.cs
+		Weapons\Hammer.cs = Weapons\Hammer.cs
+		Weapons\Knife.cs = Weapons\Knife.cs
+		Weapons\Sword.cs = Weapons\Sword.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Enum", "Enum", "{4DF9FBD3-5DD4-4BFF-90F1-B476CA18F1AE}"
+	ProjectSection(SolutionItems) = preProject
+		Weapons\WeaponType.cs = Weapons\WeaponType.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B91738B7-F625-44CC-939E-5E40D200957D} = {DA36975F-6754-4521-AC37-7E52F3F97172}
+		{4DF9FBD3-5DD4-4BFF-90F1-B476CA18F1AE} = {DA36975F-6754-4521-AC37-7E52F3F97172}
 	EndGlobalSection
 EndGlobal
