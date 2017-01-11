@@ -5,7 +5,7 @@ namespace DTTD.Units.Weapons
     public class Axe : IUnit
     {
         private int attackPoints;
-        private IUnit owner;
+        private string owner;
 
         public Axe(int attackPoints)
         {
@@ -32,7 +32,7 @@ namespace DTTD.Units.Weapons
 
 
 
-        public IUnit Owner
+        public string Owner
         {
             get
             {

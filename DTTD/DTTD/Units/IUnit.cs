@@ -1,4 +1,4 @@
 ﻿public interface IUnit
 {
-     IUnit Owner { get; set; }
+     string Owner { get; set; }
 }

@@ -1,4 +1,6 @@
-﻿using DuelToTheDeath.Class;
+﻿using DTTD.Units;
+using DTTD.Units.Weapons;
+using DuelToTheDeath.Class;
 using DuelToTheDeath.Interface;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DTTD.Factory
 {
-  public class PlayerFactory : IPlayerFactory
+    public class PlayerFactory : IPlayerFactory
     {
         public IPlayer CreateWarrior(string name)
         {
@@ -42,6 +44,10 @@ namespace DTTD.Factory
         public Sword EquipSword(int atk)
         {
             return new Sword(atk);
+        }
+        public Armor EquipArmor(int deff)
+        {
+            return new Armor(deff);
         }
 
         //Trqbva ni prazen constructor na Mage, koito edinstveno deistvie shte bude da mi dava da accessvam skilovete mu

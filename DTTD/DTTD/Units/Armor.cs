@@ -5,7 +5,7 @@ namespace DTTD.Units
     public class Armor
     {
         private int defencePoints;
-        private IUnit owner;
+        private string owner;
 
         public Armor(int defencePoints)
         {
@@ -31,7 +31,7 @@ namespace DTTD.Units
             }
         }
         
-        public IUnit Owner
+        public string Owner
         {
             get
             {

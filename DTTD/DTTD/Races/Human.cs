@@ -19,7 +19,7 @@ namespace DuelToTheDeath.Race
                  ,InitialHumanDeffencePoints,RaceType.Human)
         {
             this.Mana = InitialHumanManaPoints;         
-        }
+        }      
 
         public int Mana { get; set; }
     }

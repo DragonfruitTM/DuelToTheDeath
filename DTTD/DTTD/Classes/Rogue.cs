@@ -1,6 +1,7 @@
 ﻿namespace DuelToTheDeath.Class
 {
     using DTTD.Abstract;
+    using DTTD.Enums;
     using DTTD.Factory;
     using DuelToTheDeath.Interface;
     using Race;

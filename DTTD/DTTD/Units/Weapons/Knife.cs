@@ -5,7 +5,7 @@ namespace DTTD.Units.Weapons
     public class Knife : IUnit
     {
         private int attackPoints;
-        private IUnit owner;    //IUnit
+        private string owner;    //IUnit
 
         public Knife(int attackPoints)
         {
@@ -31,7 +31,7 @@ namespace DTTD.Units.Weapons
             }
         }
 
-        public IUnit Owner
+        public string Owner
         {
             get
             {

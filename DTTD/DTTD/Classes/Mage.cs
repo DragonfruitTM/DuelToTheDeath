@@ -5,6 +5,7 @@
     using Race;
     using DTTD.Factory;
     using DTTD.Abstract;
+    using DTTD.Enums;
 
     public class Mage : Human, IMageSkills
     {

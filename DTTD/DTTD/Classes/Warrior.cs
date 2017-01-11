@@ -3,6 +3,7 @@
     using DuelToTheDeath.Interface;
     using Race;
     using System.Collections.Generic;
+    using DTTD.Enums;
 
     public class Warrior : Ork, IWarriorSkills
     {

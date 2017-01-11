@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 
 namespace DTTD
 {
-    class Program
+   public class Startup
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var eng = new GameEngine();
-            eng.Start();
+            GameEngine.Instance.Start();
         }
     }
 }

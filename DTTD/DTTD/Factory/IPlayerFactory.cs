@@ -1,4 +1,7 @@
-﻿namespace DTTD.Factory
+﻿using DTTD.Units;
+using DTTD.Units.Weapons;
+
+namespace DTTD.Factory
 {
     public interface IPlayerFactory
     {
@@ -10,5 +13,6 @@
         Hammer EquipHammer(int atk);
         Knife EquipKnife(int atk);
         Sword EquipSword(int atk);
+        Armor EquipArmor(int deff);
     }
 }

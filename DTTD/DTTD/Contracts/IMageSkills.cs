@@ -1,4 +1,6 @@
-﻿namespace DuelToTheDeath.Interface
+﻿using DTTD.Enums;
+
+namespace DuelToTheDeath.Interface
 {
     public interface IMageSkills
     {

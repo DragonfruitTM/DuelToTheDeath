@@ -1,4 +1,6 @@
 ﻿using DTTD.Enums;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DTTD.Factory
 {
@@ -9,5 +11,6 @@ namespace DTTD.Factory
         int DeffencePoints { get; set; }
         int AttackPoints { get; set; }
         RaceType Type { get; }
+        ClassType ClassType { get; set; }       
     }
 }
