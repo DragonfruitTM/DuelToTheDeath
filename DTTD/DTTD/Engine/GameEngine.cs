@@ -264,7 +264,14 @@ namespace DTTD.Engine
         {
             if (typeOfCast == "Heal")
             {
-                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p as Mage);
+                foreach (var player in players)
+                {
+                    if(player.Name == nameOfPlayer)
+                    {
+                        Mage mage = (Mage)player;
+                        mage.Heal();
+                    }
+                }
             }
             else if (typeOfCast == " BlackMagicAttack")
             {
