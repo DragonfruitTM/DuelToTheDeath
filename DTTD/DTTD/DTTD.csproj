@@ -44,9 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\Player.cs" />
+    <Compile Include="Contracts\IComand.cs" />
     <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Enums\ClassType.cs" />
     <Compile Include="Enums\RaceType.cs" />
     <Compile Include="Exceptions\InvalidPlayerNameException.cs" />
+    <Compile Include="Factory\IItemFactory.cs" />
+    <Compile Include="Factory\ItemFactory.cs" />
     <Compile Include="Races\Human.cs" />
     <Compile Include="Races\Ork.cs" />
     <Compile Include="Races\Undead.cs" />
@@ -58,23 +62,24 @@
     <Compile Include="Factory\IPlayer.cs" />
     <Compile Include="Factory\IPlayerFactory.cs" />
     <Compile Include="Factory\PlayerFactory.cs" />
-    <Compile Include="Units\Armor.cs" />
-    <Compile Include="Units\Weapons\Axe.cs" />
-    <Compile Include="Units\Weapons\Bow.cs" />
-    <Compile Include="Units\Weapons\Hammer.cs" />
+    <Compile Include="Items\Armor.cs" />
+    <Compile Include="Items\Weapons\Axe.cs" />
+    <Compile Include="Items\Weapons\Bow.cs" />
+    <Compile Include="Items\Weapons\Hammer.cs" />
     <Compile Include="Contracts\IMageSkills.cs" />
     <Compile Include="Contracts\IRogueSkills.cs" />
     <Compile Include="Contracts\IWarriorSkills.cs" />
-    <Compile Include="Units\IUnit.cs" />
-    <Compile Include="Units\Weapons\Knife.cs" />
+    <Compile Include="Contracts\IItem.cs" />
+    <Compile Include="Items\Weapons\Knife.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Units\Weapons\Sword.cs" />
+    <Compile Include="Items\Weapons\Sword.cs" />
     <Compile Include="Enums\WeaponType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

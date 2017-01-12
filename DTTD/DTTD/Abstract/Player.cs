@@ -68,5 +68,10 @@ namespace DTTD.Abstract
         public int DeffencePoints { get; set; }
         public int AttackPoints { get; set; }
 
+        public ClassType ClassType
+        {
+            get;
+            set;
+        }
     }
 }

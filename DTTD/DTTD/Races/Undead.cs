@@ -23,7 +23,5 @@ namespace DuelToTheDeath.Race
         }
     
         public int HpDegeneration { get; set; }
-
-        }
     }
 }
