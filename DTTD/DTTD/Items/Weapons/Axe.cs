@@ -1,18 +1,18 @@
 ﻿using System;
+using DTTD.Contracts;
 
-namespace DTTD.Units.Weapons
+namespace DTTD.Items.Weapons
 {
-    public class Hammer : IUnit
+    public class Axe : IItem
     {
         private int attackPoints;
         private string owner;
 
-        public Hammer(int attackPoints)
+        public Axe(int attackPoints)
         {
             this.AttackPoints = attackPoints;
             this.Owner = owner;
         }
-
         public int AttackPoints
         {
             get
@@ -31,6 +31,8 @@ namespace DTTD.Units.Weapons
             }
         }
 
+
+
         public string Owner
         {
             get
@@ -48,5 +50,6 @@ namespace DTTD.Units.Weapons
                 this.Owner = value;
             }
         }
+
     }
 }

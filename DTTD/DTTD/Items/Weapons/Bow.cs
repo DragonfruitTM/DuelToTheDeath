@@ -1,13 +1,14 @@
 ﻿using System;
+using DTTD.Contracts;
 
-namespace DTTD.Units.Weapons
+namespace DTTD.Items.Weapons
 {
-    public class Axe : IUnit
+    public class Bow : IItem
     {
         private int attackPoints;
         private string owner;
 
-        public Axe(int attackPoints)
+        public Bow(int attackPoints)
         {
             this.AttackPoints = attackPoints;
             this.Owner = owner;
@@ -29,9 +30,6 @@ namespace DTTD.Units.Weapons
                 this.attackPoints = value;
             }
         }
-
-
-
         public string Owner
         {
             get
@@ -49,6 +47,5 @@ namespace DTTD.Units.Weapons
                 this.Owner = value;
             }
         }
-
     }
 }

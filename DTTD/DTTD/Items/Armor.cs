@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DTTD.Units
+namespace DTTD.Items
 {
     public class Armor
     {

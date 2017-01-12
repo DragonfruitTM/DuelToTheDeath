@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DTTD.Contracts;
 
 namespace DTTD.Engine
 {
-   public class Command
+   public  class Command : IComand
     {
         private const char SplitCommandSymbol = ' ';
-        private List<string> parameters;
+        private IList<string> parameters;
 
         public Command(string input)
         {
@@ -17,7 +16,7 @@ namespace DTTD.Engine
             this.TranslateInput(input);
         }
 
-        public List<string> Parameters
+        public IList<string> Parameters
         {
             get
             {
@@ -36,11 +35,11 @@ namespace DTTD.Engine
         }
         private void TranslateInput(string input)
         {
-            var com = input.Split(SplitCommandSymbol).ToArray();
+            var com = input.Split(SplitCommandSymbol);
            
             foreach (var line in com)
             {
-                Parameters.Add(line);
+                this.Parameters.Add(line);
             }
 
 

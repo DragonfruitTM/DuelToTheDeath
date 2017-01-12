@@ -1,17 +1,19 @@
 ﻿using System;
+using DTTD.Contracts;
 
-namespace DTTD.Units.Weapons
+namespace DTTD.Items.Weapons
 {
-    public class Bow : IUnit
+    public class Knife : IItem
     {
         private int attackPoints;
         private string owner;
 
-        public Bow(int attackPoints)
+        public Knife(int attackPoints)
         {
             this.AttackPoints = attackPoints;
             this.Owner = owner;
         }
+
         public int AttackPoints
         {
             get
@@ -29,6 +31,7 @@ namespace DTTD.Units.Weapons
                 this.attackPoints = value;
             }
         }
+
         public string Owner
         {
             get
@@ -43,8 +46,9 @@ namespace DTTD.Units.Weapons
                     throw new NullReferenceException("Owner can not be null!");
                 }
 
-                this.Owner = value;
+                this.owner = value;
             }
         }
+
     }
 }

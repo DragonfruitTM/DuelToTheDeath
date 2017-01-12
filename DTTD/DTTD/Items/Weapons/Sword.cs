@@ -1,8 +1,9 @@
 ﻿using System;
+using DTTD.Contracts;
 
-namespace DTTD.Units.Weapons
+namespace DTTD.Items.Weapons
 {
-    public class Sword : IUnit
+    public class Sword : IItem
     {
         private int attackPoints;
         private string owner;

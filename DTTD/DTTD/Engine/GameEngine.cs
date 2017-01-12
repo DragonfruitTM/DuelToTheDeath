@@ -1,12 +1,12 @@
 ﻿using DTTD.Abstract;
 using DTTD.Enums;
+using DTTD.Contracts;
 using DTTD.Factory;
 using DuelToTheDeath.Class;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DTTD.Engine
 {
@@ -14,15 +14,22 @@ namespace DTTD.Engine
     {
         private const string PlayerAlreadyExist = "Player {0} already exist. Choose a different username!";
         private const string PlayerRegisterеd = "Player {0} registered successfully!";
+        private const string PlayerEquiped = "Player {0} equipped successfully with {1}!";
+        private const string InvalidCommand = "{0} is not a valid command!";
+
+        private static readonly IEngine SingleInstance = new GameEngine();
 
         private ICollection<IPlayer> players;
-        private IPlayerFactory factory;
-        private static readonly IEngine SingleInstance = new GameEngine();
-        public GameEngine()
+        private IPlayerFactory playerFactory;
+        private IItemFactory itemFactory;
+
+        private GameEngine()
         {
-            this.factory = new PlayerFactory();
+            this.playerFactory = new PlayerFactory();
+            this.itemFactory = new ItemFactory();
             this.players = new List<IPlayer>();
         }
+
         public static IEngine Instance
         {
             get
@@ -30,6 +37,7 @@ namespace DTTD.Engine
                 return SingleInstance;
             }
         }
+
         public void Start()
         {
             var commands = this.ReadCommands();
@@ -37,15 +45,15 @@ namespace DTTD.Engine
             this.PrintReports(commandResult);
         }
 
-        private IList<string> ReadCommands()
+        private IEnumerable<IComand> ReadCommands()
         {
-            var commands = new List<string>();
+            var commands = new List<IComand>();
 
             var currentLine = Console.ReadLine();
 
             while (!string.IsNullOrEmpty(currentLine))
             {
-                var currentCommand = currentLine;
+                var currentCommand = new Command(currentLine);
                 commands.Add(currentCommand);
                 currentLine = Console.ReadLine();
             }
@@ -53,10 +61,9 @@ namespace DTTD.Engine
             return commands;
         }
 
-        private List<string> ProcessCommands(IList<string> commands)
+        private List<string> ProcessCommands(IEnumerable<IComand> commands)
         {
             var reports = new List<string>();
-            var factory = new PlayerFactory();
 
             foreach (var command in commands)
             {
@@ -71,168 +78,94 @@ namespace DTTD.Engine
                 }
             }
 
-            foreach (var line in commands)
-            {
-                var currentCommandLine = line.Split(' ').ToArray();
-                string nameOfPlayer = currentCommandLine[1];
-                switch (currentCommandLine[0])
-                {
-                    case "Create":
-                        if (this.players.Any(p => p.Name.ToLower() == nameOfPlayer.ToLower()))
-                        {
-                            Player loggedPlayer = (Player)(this.players.Where(p => p.Name.ToLower() == nameOfPlayer.ToLower()).Select(p => p));
-                            reports.Add(string.Format(PlayerAlreadyExist, loggedPlayer.Name));
-                        }
-
-                        switch (currentCommandLine[2])
-                        {
-                            case "Warrior":
-                                var userWarrior = this.factory.CreateWarrior(nameOfPlayer);
-                                this.players.Add(userWarrior);
-                                reports.Add(string.Format(PlayerRegisterеd, nameOfPlayer));
-                                break;
-                            case "Mage":
-                                var userMage = this.factory.CreateMage(nameOfPlayer);
-                                this.players.Add(userMage);
-                                reports.Add(string.Format(PlayerRegisterеd, nameOfPlayer));
-                                break;
-                            case "Rogue":
-                                var userRogue = this.factory.CreateRogue(nameOfPlayer);
-                                this.players.Add(userRogue);
-                                reports.Add(string.Format(PlayerRegisterеd, nameOfPlayer));
-                                break;
-                        }
-                        break;
-
-                    case "Equip":
-                        if (currentCommandLine[2] == "Axe")
-                        {
-                            var axe = this.factory.EquipAxe(50);
-                            axe.Owner = nameOfPlayer;
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += axe.AttackPoints);
-                        }
-
-                        else if (currentCommandLine[2] == "Bow")
-                        {
-                            var bow = this.factory.EquipBow(30);
-                            bow.Owner = nameOfPlayer;
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += bow.AttackPoints);
-                        }
-                        else if (currentCommandLine[2] == "Hammer")
-                        {
-                            var hammer = this.factory.EquipHammer(20);
-                            hammer.Owner = nameOfPlayer;
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += hammer.AttackPoints);
-                        }
-                        else if (currentCommandLine[2] == "Knife")
-                        {
-                            var knife = this.factory.EquipKnife(15);
-                            knife.Owner = nameOfPlayer;
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += knife.AttackPoints);
-                        }
-                        else if (currentCommandLine[2] == "Sword")
-                        {
-                            var sword = this.factory.EquipSword(60);
-                            sword.Owner = nameOfPlayer;
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += sword.AttackPoints);
-                        }
-                        else if (currentCommandLine[2] == "Armor")
-                        {
-                            var armor = this.factory.EquipArmor(100);
-                            armor.Owner = nameOfPlayer;
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.DeffencePoints += armor.DefencePoints);
-                        }
-                        break;
-
-                    case "Cast":
-                        if (currentCommandLine[2] == "Heal")
-                        {
-                            this.players.Where(p => p.Name == nameOfPlayer).Select(p => p as Mage);                          
-                        }
-
-                        else if (currentCommandLine[2] == "Bow")
-                        {
-                            var bow = this.factory.EquipBow(30);
-                            bow.Owner = nameOfPlayer;
-                        }
-                        else if (currentCommandLine[2] == "Hammer")
-                        {
-                            var hammer = this.factory.EquipHammer(20);
-                            hammer.Owner = nameOfPlayer;
-                        }
-                        else if (currentCommandLine[2] == "Knife")
-                        {
-                            var knife = this.factory.EquipKnife(15);
-                            knife.Owner = nameOfPlayer;
-                        }
-                        else if (currentCommandLine[2] == "Sword")
-                        {
-                            var sword = this.factory.EquipSword(60);
-                            sword.Owner = nameOfPlayer;
-                        }
-                        else if (currentCommandLine[2] == "Armor")
-                        {
-                            var armor = this.factory.EquipArmor(100);
-                            armor.Owner = nameOfPlayer;
-                        }
-                        break;
-                }
-
-                //Trqbva da se napravi taka che IUnit da se setva na name of player, koito shte e string.
-                //Ili propertyto mu da se promeni na string 
-                // TODO: How do you set owner to weapon ????!! some help.....
-                //  if (currentCommandLine[0] == "Create")
-                //  {
-                //      if (currentCommandLine[2] == "Ork")
-                //      {
-                //          this.factory.CreateWarrior(nameOfPlayer);
-                //          reports.Add(string.Format("{0} has created himself a {1}!", nameOfPlayer, "Warrior"));
-                //      }
-                //
-                //      else if (currentCommandLine[2] == "Human")
-                //      {
-                //          this.factory.CreateMage(nameOfPlayer);
-                //          reports.Add(string.Format("{0} has created himself a {1}!", nameOfPlayer, "Mage"));
-                //      }
-                //
-                //      else if (currentCommandLine[2] == "Undead")
-                //      {
-                //          this.factory.CreateRogue(nameOfPlayer);
-                //          reports.Add(string.Format("{0} has created himself a {1}!", nameOfPlayer, "Rogue"));
-                //      }
-                //  }
-
-
-                //   else if(currentCommandLine[0] == "Cast")
-                //   {
-                //       if (currentCommandLine[2] == "Heal")
-                //       {
-                //           //this.factory.CreateMage.Heal();
-                //       }
-                //       else if (currentCommandLine[2] == " BlackMagicAttack")
-                //       {
-                //           //this.factory.CreateMage.BlackMagicAttack();
-                //       }
-                //       else if(currentCommandLine[2] == "DodgeAttackDefense")
-                //       {
-                //           //this.factory.CreateMage.DodgeAttackDefense();
-                //       }
-                //       else if(currentCommandLine[2]== "EnergyShieldDefense")
-                //       {
-                //           //this.factory.CreateMage.EnergyShieldDefense();
-                //       }
-                //       else if(currentCommandLine[2]== "WhiteMagicAttack")
-                //       {
-                //           //this.factory.CreateMage.WhiteMagicAttack();
-                //       }
-                //   }
-            }
-
             return reports;
         }
 
+        private string ProcessSingleCommand(IComand command)
+        {
+            string nameOfPlayer;
+
+            switch (command.Parameters[0])
+            {
+                case "Create":
+                    if (command.Parameters.Count < 3)
+                    {
+                        return "Create command should have 3 parameters"; // We could change this
+                    }
+                    nameOfPlayer = command.Parameters[1];
+                    string typeOfPlayer = command.Parameters[2];
+                    return this.CreatePlayer(nameOfPlayer, typeOfPlayer);
+
+                case "Equip":
+                    if (command.Parameters.Count < 3)
+                    {
+                        return "Equip command should have 3 parameters"; // We could change this
+                    }
+                    nameOfPlayer = command.Parameters[1];
+                    string typeOfItem = command.Parameters[2];
+                    return this.EquipPlayer(nameOfPlayer, typeOfItem);
+
+                case "Cast":
+                    if (command.Parameters.Count < 3)
+                    {
+                        return "Cast command should have 2 more parameters"; // We could change this
+                    }
+                    nameOfPlayer = command.Parameters[1];
+                    string typeOfCast = command.Parameters[2];
+                    return this.CastPlayer(nameOfPlayer, typeOfCast);
+            }
+
+            return string.Format(InvalidCommand, command.Parameters[0]);
+        }
+
+        //Trqbva da se napravi taka che IUnit da se setva na name of player, koito shte e string.
+        //Ili propertyto mu da se promeni na string 
+        // TODO: How do you set owner to weapon ????!! some help.....
+        //  if (currentCommandLine[0] == "Create")
+        //  {
+        //      if (currentCommandLine[2] == "Ork")
+        //      {
+        //          this.factory.CreateWarrior(nameOfPlayer);
+        //          reports.Add(string.Format("{0} has created himself a {1}!", nameOfPlayer, "Warrior"));
+        //      }
+        //
+        //      else if (currentCommandLine[2] == "Human")
+        //      {
+        //          this.factory.CreateMage(nameOfPlayer);
+        //          reports.Add(string.Format("{0} has created himself a {1}!", nameOfPlayer, "Mage"));
+        //      }
+        //
+        //      else if (currentCommandLine[2] == "Undead")
+        //      {
+        //          this.factory.CreateRogue(nameOfPlayer);
+        //          reports.Add(string.Format("{0} has created himself a {1}!", nameOfPlayer, "Rogue"));
+        //      }
+        //  }
 
 
+        //   else if(currentCommandLine[0] == "Cast")
+        //   {
+        //       if (currentCommandLine[2] == "Heal")
+        //       {
+        //           //this.factory.CreateMage.Heal();
+        //       }
+        //       else if (currentCommandLine[2] == " BlackMagicAttack")
+        //       {
+        //           //this.factory.CreateMage.BlackMagicAttack();
+        //       }
+        //       else if(currentCommandLine[2] == "DodgeAttackDefense")
+        //       {
+        //           //this.factory.CreateMage.DodgeAttackDefense();
+        //       }
+        //       else if(currentCommandLine[2]== "EnergyShieldDefense")
+        //       {
+        //           //this.factory.CreateMage.EnergyShieldDefense();
+        //       }
+        //       else if(currentCommandLine[2]== "WhiteMagicAttack")
+        //       {
+        //           //this.factory.CreateMage.WhiteMagicAttack();
+        //       }
+        //   }
 
         private void PrintReports(IList<string> reports)
         {
@@ -246,5 +179,110 @@ namespace DTTD.Engine
 
             Console.Write(output.ToString());
         }
+
+        private string CreatePlayer(string nameOfPlayer, string typeOfPlayer)
+        {
+            if (this.players.Any(p => p.Name.ToLower() == nameOfPlayer.ToLower()))
+            {
+                return string.Format(PlayerAlreadyExist, nameOfPlayer);
+            }
+
+
+
+            switch (typeOfPlayer)
+            {
+                case "Warrior":
+                    var userWarrior = this.playerFactory.CreateWarrior(nameOfPlayer);
+                    this.players.Add(userWarrior);
+                    return string.Format(PlayerRegisterеd, nameOfPlayer);
+
+                case "Mage":
+                    var userMage = this.playerFactory.CreateMage(nameOfPlayer);
+                    this.players.Add(userMage);
+                    return string.Format(PlayerRegisterеd, nameOfPlayer);
+
+                case "Rogue":
+                    var userRogue = this.playerFactory.CreateRogue(nameOfPlayer);
+                    this.players.Add(userRogue);
+                    return string.Format(PlayerRegisterеd, nameOfPlayer);
+            }
+
+            // We could change this swith-case construction to something more appropriate
+            return "You do't have the ability to create such player in this version of the game";
+        }
+
+        private string EquipPlayer(string nameOfPlayer, string typeOfItem) 
+        {
+            if (typeOfItem == "Axe")
+            {
+                var axe = this.itemFactory.EquipAxe(50);
+                axe.Owner = nameOfPlayer;
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += axe.AttackPoints);
+                return string.Format(PlayerEquiped, nameOfPlayer, typeOfItem);
+            }
+
+            else if (typeOfItem == "Bow")
+            {
+                var bow = this.itemFactory.EquipBow(30);
+                bow.Owner = nameOfPlayer;
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += bow.AttackPoints);
+                return string.Format(PlayerEquiped, nameOfPlayer, typeOfItem);
+            }
+            else if (typeOfItem == "Hammer")
+            {
+                var hammer = this.itemFactory.EquipHammer(20);
+                hammer.Owner = nameOfPlayer;
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += hammer.AttackPoints);
+                return string.Format(PlayerEquiped, nameOfPlayer, typeOfItem);
+            }
+            else if (typeOfItem == "Knife")
+            {
+                var knife = this.itemFactory.EquipKnife(15);
+                knife.Owner = nameOfPlayer;
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += knife.AttackPoints);
+                return string.Format(PlayerEquiped, nameOfPlayer, typeOfItem);
+            }
+            else if (typeOfItem == "Sword")
+            {
+                var sword = this.itemFactory.EquipSword(60);
+                sword.Owner = nameOfPlayer;
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.AttackPoints += sword.AttackPoints);
+                return string.Format(PlayerEquiped, nameOfPlayer, typeOfItem);
+            }
+            else if (typeOfItem == "Armor")
+            {
+                var armor = this.itemFactory.EquipArmor(100);
+                armor.Owner = nameOfPlayer;
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p.DeffencePoints += armor.DefencePoints);
+                return string.Format(PlayerEquiped, nameOfPlayer, typeOfItem);
+            }
+
+            return string.Format("There's no such item like {0}", typeOfItem);
+        }
+
+        private string CastPlayer(string nameOfPlayer, string typeOfCast)
+        {
+            if (typeOfCast == "Heal")
+            {
+                this.players.Where(p => p.Name == nameOfPlayer).Select(p => p as Mage);
+            }
+            else if (typeOfCast == " BlackMagicAttack")
+            {
+                //this.factory.CreateMage.BlackMagicAttack();
+            }
+            else if (typeOfCast == "DodgeAttackDefense")
+            {
+                //this.factory.CreateMage.DodgeAttackDefense();
+            }
+            else if (typeOfCast == "EnergyShieldDefense")
+            {
+                //this.factory.CreateMage.EnergyShieldDefense();
+            }
+            else if (typeOfCast == "WhiteMagicAttack")
+            {
+                //this.factory.CreateMage.WhiteMagicAttack();
+            }
+        }
+
     }
 }
