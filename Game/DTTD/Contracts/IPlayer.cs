@@ -1,8 +1,7 @@
-﻿namespace DTTD.Factory
+﻿namespace DTTD.Contracts
 {
     using DTTD.Enums;
-    using System.Collections;
-    using System.Collections.Generic;
+
     public interface IPlayer
     {
         string Name { get; set; }

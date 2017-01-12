@@ -2,7 +2,7 @@
 {
     using DTTD.Abstract;
     using DTTD.Enums;
-    using DTTD.Factory;
+    using DTTD.Contracts;
     using System;
     public class Undead : Player, IPlayer
     {
