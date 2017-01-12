@@ -1,5 +1,4 @@
-﻿
-namespace DTTD.Abstract
+﻿namespace DTTD.Abstract
 {
     using DTTD.Factory;
     using DuelToTheDeath.Class;
@@ -37,27 +36,27 @@ namespace DTTD.Abstract
                     throw new ArgumentException();
                 }
 
-                if (this.Type == RaceType.Human)
-                {
-                    if (value.Substring(0, 5) != "HumN_")
-                    {
-                        throw new ArgumentException("Name is invalid for the humans!!! TRAITOR!!!");
-                    }
-                }
-                else if (this.Type == RaceType.Ork)
-                {
-                    if (value.Substring(0, 5) != "RazL_")
-                    {
-                        throw new ArgumentException("Name is invalid for the orks!!! TRAITOR!!!");
-                    }
-                }
-                else if (this.Type == RaceType.Undead)
-                {
-                    if (value.Substring(0, 5) != "ZomB_")
-                    {
-                        throw new ArgumentException("Name is invalid for the undeads!!! TRAITOR!!!");
-                    }
-                }
+        //    if (this.Type == RaceType.Human)
+        //    {
+        //        if (value.Substring(0, 5) != "HumN_")
+        //        {
+        //            throw new ArgumentException("Name is invalid for the humans!!! TRAITOR!!!");
+        //        }
+        //    }
+        //    else if (this.Type == RaceType.Ork)
+        //    {
+        //        if (value.Substring(0, 5) != "RazL_")
+        //        {
+        //            throw new ArgumentException("Name is invalid for the orks!!! TRAITOR!!!");
+        //        }
+        //    }
+        //    else if (this.Type == RaceType.Undead)
+        //    {
+        //        if (value.Substring(0, 5) != "ZomB_")
+        //        {
+        //            throw new ArgumentException("Name is invalid for the undeads!!! TRAITOR!!!");
+        //        }
+        //    }
 
                 this.name = value;
 

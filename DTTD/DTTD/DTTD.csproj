@@ -44,36 +44,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\Player.cs" />
-    <Compile Include="Contracts\IComand.cs" />
+    <Compile Include="Engine\IComand.cs" />
     <Compile Include="Engine\IEngine.cs" />
     <Compile Include="Enums\ClassType.cs" />
     <Compile Include="Enums\RaceType.cs" />
     <Compile Include="Exceptions\InvalidPlayerNameException.cs" />
     <Compile Include="Factory\IItemFactory.cs" />
     <Compile Include="Factory\ItemFactory.cs" />
-    <Compile Include="Races\Human.cs" />
-    <Compile Include="Races\Ork.cs" />
-    <Compile Include="Races\Undead.cs" />
-    <Compile Include="Classes\Mage.cs" />
-    <Compile Include="Classes\Rogue.cs" />
-    <Compile Include="Classes\Warrior.cs" />
+    <Compile Include="Models\Races\Human.cs" />
+    <Compile Include="Models\Races\Ork.cs" />
+    <Compile Include="Models\Races\Undead.cs" />
+    <Compile Include="Models\Classes\Mage.cs" />
+    <Compile Include="Models\Classes\Rogue.cs" />
+    <Compile Include="Models\Classes\Warrior.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\GameEngine.cs" />
     <Compile Include="Factory\IPlayer.cs" />
     <Compile Include="Factory\IPlayerFactory.cs" />
     <Compile Include="Factory\PlayerFactory.cs" />
-    <Compile Include="Items\Armor.cs" />
-    <Compile Include="Items\Weapons\Axe.cs" />
-    <Compile Include="Items\Weapons\Bow.cs" />
-    <Compile Include="Items\Weapons\Hammer.cs" />
+    <Compile Include="Models\Items\Armor.cs" />
+    <Compile Include="Models\Items\Weapons\Axe.cs" />
+    <Compile Include="Models\Items\Weapons\Bow.cs" />
+    <Compile Include="Models\Items\Weapons\Hammer.cs" />
     <Compile Include="Contracts\IMageSkills.cs" />
     <Compile Include="Contracts\IRogueSkills.cs" />
     <Compile Include="Contracts\IWarriorSkills.cs" />
     <Compile Include="Contracts\IItem.cs" />
-    <Compile Include="Items\Weapons\Knife.cs" />
+    <Compile Include="Models\Items\Weapons\Knife.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Items\Weapons\Sword.cs" />
+    <Compile Include="Models\Items\Weapons\Sword.cs" />
     <Compile Include="Enums\WeaponType.cs" />
   </ItemGroup>
   <ItemGroup>

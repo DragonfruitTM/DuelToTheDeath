@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace DTTD.Exceptions
+﻿namespace DTTD.Exceptions
 {
+    using System;
     class InvalidPlayerNameException : ApplicationException
     {
 

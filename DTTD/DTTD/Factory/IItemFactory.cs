@@ -1,8 +1,7 @@
-﻿using DTTD.Items;
-using DTTD.Items.Weapons;
-
-namespace DTTD.Factory
+﻿namespace DTTD.Factory
 {
+    using DTTD.Items;
+    using DTTD.Items.Weapons;
     interface IItemFactory
     {
         Axe EquipAxe(int atk);

@@ -1,13 +1,12 @@
-﻿using DuelToTheDeath.Class;
-using DuelToTheDeath.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DTTD.Factory
+﻿namespace DTTD.Factory
 {
+    using DuelToTheDeath.Class;
+    using DuelToTheDeath.Interface;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
     public class PlayerFactory : IPlayerFactory
     {
         public IPlayer CreateWarrior(string name)

@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DTTD.Contracts;
-
-namespace DTTD.Engine
+﻿namespace DTTD.Engine
 {
-   public  class Command : IComand
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using DTTD.Contracts;
+
+    public class Command : IComand
     {
         private const char SplitCommandSymbol = ' ';
         private IList<string> parameters;

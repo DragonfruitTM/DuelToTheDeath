@@ -1,9 +1,8 @@
-﻿using DTTD.Enums;
-using System.Collections;
-using System.Collections.Generic;
-
-namespace DTTD.Factory
+﻿namespace DTTD.Factory
 {
+    using DTTD.Enums;
+    using System.Collections;
+    using System.Collections.Generic;
     public interface IPlayer
     {
         string Name { get; set; }
