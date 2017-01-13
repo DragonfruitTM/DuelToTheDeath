@@ -1,0 +1,6 @@
+C:\Users\Administrator\Desktop\DuelToTheDeath-master\DTTD\Game\DTTD\bin\Debug\DTTD.exe.config
+C:\Users\Administrator\Desktop\DuelToTheDeath-master\DTTD\Game\DTTD\bin\Debug\DTTD.exe
+C:\Users\Administrator\Desktop\DuelToTheDeath-master\DTTD\Game\DTTD\bin\Debug\DTTD.pdb
+C:\Users\Administrator\Desktop\DuelToTheDeath-master\DTTD\Game\DTTD\obj\Debug\DTTD.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\DuelToTheDeath-master\DTTD\Game\DTTD\obj\Debug\DTTD.exe
+C:\Users\Administrator\Desktop\DuelToTheDeath-master\DTTD\Game\DTTD\obj\Debug\DTTD.pdb

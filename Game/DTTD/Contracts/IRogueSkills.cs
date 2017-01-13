@@ -1,14 +1,14 @@
-﻿namespace DTTD.Contracts
+﻿namespace DuelToTheDeath.Interface
 {
-    public interface IRogueSkills : IPlayer
+    public interface IRogueSkills
     {
-        void BowAttack(IPlayer enemy);
+        void BowAttack();
 
-        void SwordAttack(IPlayer enemy);
+        void SwordAttack();
 
-        void DeadAttack(IPlayer enemy);
+        void DeadAttack();
 
-        void ShieldDefense(IPlayer enemy);
+        void ShieldDefense();
 
         void DodgeAttackDefense();
 

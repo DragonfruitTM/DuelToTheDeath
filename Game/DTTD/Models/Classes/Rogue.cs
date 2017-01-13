@@ -3,12 +3,12 @@
     using DTTD.Abstract;
     using DTTD.Enums;
     using DTTD.Factory;
-    using DTTD.Contracts;
+    using DuelToTheDeath.Interface;
     using Race;
 
     public class Rogue : Undead, IRogueSkills
     {
-      /*public Rogue()  // What is the benefits of using this C'tor
+        public Rogue()
             : this(null)
         {
             this.CollectHealthPointsFromCorpses();
@@ -18,21 +18,21 @@
             this.DodgeAttackDefense();
             this.ShieldDefense();
             this.SwordAttack();
-        }*/
+        }
 
         public Rogue(string undeadName)
             : base(undeadName)
         {
         }
 
-        public void BowAttack(IPlayer enemy)
+        public void BowAttack()
         {
-            enemy.HitPoints -= 20;
+            this.Target.HitPoints -= 20;
         }
 
-        public void DeadAttack(IPlayer enemy)
+        public void DeadAttack()
         {
-            enemy.HitPoints /=4;
+            this.Target.HitPoints /=4;
             this.HitPoints /= 10;
         }
 
@@ -41,14 +41,14 @@
             this.HitPoints += 10;
         }
 
-        public void ShieldDefense(IPlayer enemy)
+        public void ShieldDefense()
         {
-            enemy.AttackPoints /= 3;
+            this.Target.AttackPoints /= 3;
         }
 
-        public void SwordAttack(IPlayer enemy)
+        public void SwordAttack()
         {
-            enemy.HitPoints -= 50;
+            this.Target.HitPoints -= 50;
         }
 
         //only for one move

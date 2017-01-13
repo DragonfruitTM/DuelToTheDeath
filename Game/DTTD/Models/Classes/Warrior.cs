@@ -1,12 +1,12 @@
 ﻿namespace DuelToTheDeath.Class
 {
-    using DTTD.Contracts;
+    using DuelToTheDeath.Interface;
     using Race;
     using System.Collections.Generic;
     using DTTD.Enums;
     public class Warrior : Ork, IWarriorSkills
     {
-      /*public Warrior()    // What is the benefits of using this C'tor
+        public Warrior()
             : this(null)
         {
             this.SpearAttack();
@@ -16,7 +16,7 @@
             this.CutByAxeAttack();
             this.BerserkMode();
             this.BlockAttackDefense();
-        }*/
+        }
 
         public Warrior(string orkName) : base(orkName)
         {
@@ -35,9 +35,9 @@
             this.DeffencePoints = 100000;
         }
 
-        public void CutByAxeAttack(IPlayer enemy)
+        public void CutByAxeAttack()
         {
-            enemy.HitPoints -= 50;
+            this.Target.HitPoints -= 50;
         }
 
         public void EatRootsHealthRestoration()
@@ -45,9 +45,9 @@
             this.HitPoints += 20;
         }
 
-        public void SpearAttack(IPlayer enemy)
+        public void SpearAttack()
         {
-            enemy.HitPoints -= 30;
+            this.Target.HitPoints -= 30;
         }
 
         public void UseMedicineHealthRestoration()
@@ -55,9 +55,9 @@
             this.HitPoints += 30;
         }
 
-        public void UseShieldDefense(IPlayer enemy)
+        public void UseShieldDefense()
         {
-            enemy.HitPoints /= 3;
+            this.Target.HitPoints /= 3;
         }
     }
 }

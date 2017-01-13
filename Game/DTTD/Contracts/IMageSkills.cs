@@ -1,10 +1,10 @@
 ﻿using DTTD.Enums;
 
-namespace DTTD.Contracts
+namespace DuelToTheDeath.Interface
 {
-    public interface IMageSkills : IPlayer
+    public interface IMageSkills
     {
-        void WhiteMagicAttack(IPlayer enemy);
+        void WhiteMagicAttack();
 
         void EnergyShieldDefense();
 
@@ -12,7 +12,7 @@ namespace DTTD.Contracts
 
         void Heal();
 
-        void BlackMagicAttack(IPlayer enemy);
+        void BlackMagicAttack();
 
     }
 }

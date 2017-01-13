@@ -7,6 +7,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using DuelToTheDeath.Interface;
+    using Abstract;
 
     public class GameEngine : IEngine
     {
@@ -16,30 +18,29 @@
         private const string PlayerCast = "Player {0} has successfuly casted {1}!";
         private const string InvalidCommand = "{0} is not a valid command!";
 
-        private static readonly IEngine SingleInstance = new GameEngine();
+        private static GameEngine thisInstance;
 
-        private ICollection<IPlayer> players;
-        private ICollection<IMageSkills> mages;
-        private ICollection<IRogueSkills> rogues;
-        private ICollection<IWarriorSkills> warriors;
-        private IPlayerFactory playerFactory;
-        private IItemFactory itemFactory;
+        private readonly ICollection<IPlayer> players;
+        private readonly IPlayerFactory playerFactory;
+        private readonly IItemFactory itemFactory;
 
         private GameEngine()
         {
             this.playerFactory = new PlayerFactory();
             this.itemFactory = new ItemFactory();
             this.players = new List<IPlayer>();
-            this.mages = new List<IMageSkills>();
-            this.rogues = new List<IRogueSkills>();
-            this.warriors = new List<IWarriorSkills>();
         }
 
-        public static IEngine Instance
+        public static GameEngine Instance
         {
             get
             {
-                return SingleInstance;
+                if (thisInstance == null)
+                {
+                    thisInstance = new GameEngine();
+                }
+
+                return thisInstance;
             }
         }
 
@@ -88,7 +89,7 @@
 
         private string ProcessSingleCommand(IComand command)
         {
-            string nameOfPlayer = command.Parameters[1];
+            string nameOfPlayer = (string)command.Parameters[1];
 
             switch (command.Parameters[0])
             {
@@ -113,13 +114,13 @@
                     return this.EquipPlayer(nameOfPlayer, typeOfItem);
 
                 case "Cast":
-                    if (command.Parameters.Count < 4)   // We do not need enemy player for some of the methods
+                    string enemyPlayer = command.Parameters[3];
+                    if (command.Parameters.Count < 4)
                     {
                         return "Cast command should have 4 parameters"; // We could change this
                     }
 
                     string skillName = command.Parameters[2];
-                    string enemyPlayer = command.Parameters[3];
 
                     return this.CastPlayer(nameOfPlayer, skillName, enemyPlayer);
             }
@@ -140,7 +141,6 @@
                     var userWarrior = this.playerFactory.CreateWarrior(nameOfPlayer);
 
                     this.players.Add(userWarrior);
-                    this.warriors.Add(userWarrior);
 
                     return string.Format(PlayerRegisterеd, nameOfPlayer);
                 case "Mage":
@@ -148,7 +148,6 @@
                     var userMage = this.playerFactory.CreateMage(nameOfPlayer);
 
                     this.players.Add(userMage);
-                    this.mages.Add(userMage);
 
                     return string.Format(PlayerRegisterеd, nameOfPlayer);
                 case "Rogue":
@@ -156,7 +155,6 @@
                     var userRogue = this.playerFactory.CreateRogue(nameOfPlayer);
 
                     this.players.Add(userRogue);
-                    this.rogues.Add(userRogue);
 
                     return string.Format(PlayerRegisterеd, nameOfPlayer);
             }
@@ -165,7 +163,7 @@
             return "You don't have the ability to create such a player in this version of the game";
         }
 
-        private string EquipPlayer(string nameOfPlayer, string typeOfItem) 
+        private string EquipPlayer(string nameOfPlayer, string typeOfItem)
         {
             if (typeOfItem == "Axe")
             {
@@ -220,133 +218,142 @@
 
         private string CastPlayer(string nameOfPlayer, string skillName, string enemyPlayer)
         {
-            // We do not need enemy player for some of the methods
-            IPlayer enemy = this.players.SingleOrDefault(p => p.Name == enemyPlayer);
-
-            //Mage Skills
-            if (skillName == "Heal")
+            //Selectors
+            IPlayer player = this.players.FirstOrDefault(p => p.Name == nameOfPlayer);
+            if(player == null)
             {
-                this.mages.SingleOrDefault(m => m.Name == nameOfPlayer).Heal();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                throw new NullReferenceException("There is no such player in game.");
             }
 
-            else if (skillName == "BlackMagicAttack")
+            switch (player.ClassType)
             {
-                this.mages.SingleOrDefault(m => m.Name == nameOfPlayer).BlackMagicAttack(enemy);
+                case Enums.ClassType.Mage:
+                    this.CastMage((Mage)player, skillName, enemyPlayer, nameOfPlayer);
+                    return string.Format(PlayerCast, nameOfPlayer, skillName);
+                case Enums.ClassType.Rogue:
+                    this.CastRogue((Rogue)player, skillName, enemyPlayer, nameOfPlayer);
+                    return string.Format(PlayerCast, nameOfPlayer, skillName);
+                case Enums.ClassType.Warrior:
+                    this.CastWarrior((Warrior)player, skillName, enemyPlayer, nameOfPlayer);
+                    return string.Format(PlayerCast, nameOfPlayer, skillName);
+                default:
+                    throw new NotSupportedException("Not supported player.");
+            } 
+        }
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
-            }
-
-            else if (skillName == "DodgeAttackDefense")
+        private void CastWarrior(Warrior warrior, string skillName, string enemyPlayer, string nameOfPlayer)
+        {
+            if (skillName == "CutByAxeAttack")
             {
-                this.mages.SingleOrDefault(m => m.Name == nameOfPlayer).DodgeSingleAttack();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
-            }
-
-            else if (skillName == "EnergyShieldDefense")
-            {
-                this.mages.SingleOrDefault(m => m.Name == nameOfPlayer).EnergyShieldDefense();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
-            }
-
-            else if (skillName == "WhiteMagicAttack")
-            {
-                this.mages.SingleOrDefault(m => m.Name == nameOfPlayer).WhiteMagicAttack(enemy);
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
-            }
-
-            //Warrior Skills
-            else if (skillName == "CutByAxeAttack")
-            {
-                this.warriors.SingleOrDefault(m => m.Name == nameOfPlayer).CutByAxeAttack(enemy);
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                warrior.Target.Name = nameOfPlayer;
+                
+                warrior.CutByAxeAttack();
             }
 
             else if (skillName == "SpearAttack")
             {
-                this.warriors.SingleOrDefault(m => m.Name == nameOfPlayer).SpearAttack(enemy);
+                warrior.Target.Name = nameOfPlayer;
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                warrior.SpearAttack();
             }
 
             else if (skillName == "BerserkMode")
             {
-                this.warriors.SingleOrDefault(m => m.Name == nameOfPlayer).BerserkMode();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                warrior.BerserkMode();
             }
 
             else if (skillName == "UseShieldDefense")
             {
-                this.warriors.SingleOrDefault(m => m.Name == nameOfPlayer).UseShieldDefense(enemy);
+                warrior.Target.Name = nameOfPlayer;
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                warrior.UseShieldDefense();
             }
 
             else if (skillName == "BlockAttackDefense")
             {
-                this.warriors.SingleOrDefault(m => m.Name == nameOfPlayer).BlockAttackDefense();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                warrior.BlockAttackDefense();
             }
+        }
 
-            //Rogue Skills
-            else if (skillName == "BowAttack")
+        private void CastRogue(Rogue rogue, string skillName, string enemyPlayer, string nameOfPlayer)
+        {
+            if (skillName == "BowAttack")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).BowAttack(enemy);
+                rogue.Target.Name = enemyPlayer;
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                rogue.BowAttack();
             }
 
             else if (skillName == "SwordAttack")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).SwordAttack(enemy);
+                rogue.Target.Name = enemyPlayer;
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                rogue.SwordAttack();
             }
 
             else if (skillName == "DeadAttack")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).DeadAttack(enemy);
+                rogue.Target.Name = enemyPlayer;
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                rogue.DeadAttack();
             }
 
             else if (skillName == "ShieldDefense")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).ShieldDefense(enemy);
+                rogue.Target.Name = enemyPlayer;
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                rogue.ShieldDefense();
             }
 
             else if (skillName == "DodgeAttackDefense")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).DodgeAttackDefense();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                rogue.DodgeAttackDefense();
             }
 
             else if (skillName == "CollectHealthPointsFromCorpses")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).CollectHealthPointsFromCorpses();
-
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+                rogue.CollectHealthPointsFromCorpses();
             }
 
             else if (skillName == "TakeRestHealthRestorationk")
             {
-                this.rogues.SingleOrDefault(m => m.Name == nameOfPlayer).TakeRestHealthRestoration();
+                rogue.TakeRestHealthRestoration();
+            }
+        }
 
-                return string.Format(PlayerCast, nameOfPlayer, skillName);
+        private void CastMage(Mage mage, string skillName, string enemyPlayer, string nameOfPlayer)
+        {
+            if (skillName == "Heal")
+            {
+                mage.Heal();
             }
 
-            return string.Format("There's no such skill for you to cast.");
+            else if (skillName == "BlackMagicAttack")
+            {
+                mage.Target.Name = enemyPlayer;
+
+                mage.BlackMagicAttack();
+            }
+
+            else if (skillName == "DodgeAttackDefense")
+            {
+                mage.DodgeSingleAttack();
+            }
+
+            else if (skillName == "EnergyShieldDefense")
+            {
+                mage.EnergyShieldDefense();
+            }
+
+            else if (skillName == "WhiteMagicAttack")
+            {
+                mage.Target.Name = enemyPlayer;
+
+                mage.WhiteMagicAttack();
+            }
+
         }
+
         private void PrintReports(IList<string> reports)
         {
             var output = new StringBuilder();

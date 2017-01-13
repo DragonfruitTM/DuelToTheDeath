@@ -2,7 +2,7 @@
 {
     using DTTD.Abstract;
     using DTTD.Enums;
-    using DTTD.Contracts;
+    using DTTD.Factory;
     using System;
     public class Ork : Player, IPlayer
     {
