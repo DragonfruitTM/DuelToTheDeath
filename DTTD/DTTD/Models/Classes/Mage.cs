@@ -1,7 +1,7 @@
 ﻿namespace DuelToTheDeath.Class
 {
     using System;
-    using DuelToTheDeath.Interface;
+    using DTTD.Contracts;
     using Race;
     using DTTD.Factory;
     using DTTD.Abstract;
@@ -9,17 +9,19 @@
 
     public class Mage : Human, IMageSkills
     {
-        public Mage()
+      /*public Mage()   // What is the benefits of using this C'tor
             : this(null)
         {
             this.Heal();
             //only for one move
             this.DodgeSingleAttack();
-            this.BlackMagicAttack();
+
+            this.BlackMagicAttack();  //Why we call this methods in C'tor
             //call every move
             this.EnergyShieldDefense();
-            this.WhiteMagicAttack();
-        }
+
+            this.WhiteMagicAttack();  //Why we call this methods in C'tor
+        }*/
 
         public Mage(string humanName)
             : base(humanName)
@@ -27,9 +29,9 @@
 
         }
 
-        public void BlackMagicAttack()
+        public void BlackMagicAttack(IPlayer enemy)
         {
-            this.Target.HitPoints -= 300;
+            enemy.HitPoints -= 300;
             this.Mana -= 150;
         }
         //only for one move
@@ -53,10 +55,10 @@
             this.DeffencePoints *= 3;
         }
 
-        public void WhiteMagicAttack()
+        public void WhiteMagicAttack(IPlayer enemy)
         {
             this.Mana -= 150;
-            this.Target.HitPoints -= 100;
+            enemy.HitPoints -= 100;
         }
 
 

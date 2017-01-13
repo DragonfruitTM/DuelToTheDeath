@@ -59,7 +59,7 @@
     <Compile Include="Models\Classes\Warrior.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\GameEngine.cs" />
-    <Compile Include="Factory\IPlayer.cs" />
+    <Compile Include="Contracts\IPlayer.cs" />
     <Compile Include="Factory\IPlayerFactory.cs" />
     <Compile Include="Factory\PlayerFactory.cs" />
     <Compile Include="Models\Items\Armor.cs" />

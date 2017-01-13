@@ -1,6 +1,6 @@
 ﻿namespace DTTD.Abstract
 {
-    using DTTD.Factory;
+    using DTTD.Contracts;
     using DuelToTheDeath.Class;
     using Enums;
     using System;

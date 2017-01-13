@@ -1,14 +1,14 @@
-﻿namespace DuelToTheDeath.Interface
+﻿namespace DTTD.Contracts
 {
-    public interface IWarriorSkills
+    public interface IWarriorSkills : IPlayer
     {
-        void CutByAxeAttack();
+        void CutByAxeAttack(IPlayer enemy);
 
-        void SpearAttack();
+        void SpearAttack(IPlayer enemy);
 
         void BerserkMode();
 
-        void UseShieldDefense();
+        void UseShieldDefense(IPlayer enemy);
 
         void BlockAttackDefense();
 

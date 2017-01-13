@@ -1,6 +1,6 @@
 ﻿namespace DuelToTheDeath.Race
 {
-    using DTTD.Factory;
+    using DTTD.Contracts;
     using DTTD.Abstract;
     using DTTD.Enums;
     public class Human : Player,IPlayer

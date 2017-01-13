@@ -1,9 +1,11 @@
 ﻿namespace DTTD.Factory
 {
+    using DTTD.Contracts;
+
     public interface IPlayerFactory
     {
-        IPlayer CreateWarrior(string name);
-        IPlayer CreateMage(string name);
-        IPlayer CreateRogue(string name);
+        IWarriorSkills CreateWarrior(string name);
+        IMageSkills CreateMage(string name);
+        IRogueSkills CreateRogue(string name);
     }
 }
