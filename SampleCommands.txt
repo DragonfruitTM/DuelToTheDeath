@@ -1,0 +1,8 @@
+Create Ilia Mage
+Create Antonii Warrior
+Equip Antonii Axe
+Create Daniel Rogue
+Equip Ilia Hammer
+Equip Daniel Sword
+Cast Ilia Heal Antonii
+Cast Daniel SwordAttack Ilia

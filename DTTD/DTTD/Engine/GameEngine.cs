@@ -16,7 +16,10 @@
         private const string PlayerCast = "Player {0} has successfuly casted {1}!";
         private const string InvalidCommand = "{0} is not a valid command!";
 
-        private static readonly IEngine SingleInstance = new GameEngine();
+        private static IEngine SingleInstance;
+
+        private ICommandReader reader;
+        private ILogger logger;
 
         private ICollection<IPlayer> players;
         private ICollection<IMageSkills> mages;
@@ -25,8 +28,20 @@
         private IPlayerFactory playerFactory;
         private IItemFactory itemFactory;
 
-        private GameEngine()
+        private GameEngine(ICommandReader reader, ILogger logger)
         {
+            if (reader == null)
+            {
+                throw new NullReferenceException("CommandReader should not be null!");
+            }
+            this.reader = reader;
+
+            if (logger == null)
+            {
+                throw new NullReferenceException("Logger should not be null!");
+            }
+            this.logger = logger;
+
             this.playerFactory = new PlayerFactory();
             this.itemFactory = new ItemFactory();
             this.players = new List<IPlayer>();
@@ -34,39 +49,36 @@
             this.rogues = new List<IRogueSkills>();
             this.warriors = new List<IWarriorSkills>();
         }
-
-        public static IEngine Instance
+        
+        public static IEngine Initialise (ICommandReader reader, ILogger loger)
         {
-            get
+            if (SingleInstance == null)
             {
-                return SingleInstance;
+                SingleInstance = new GameEngine(reader, loger);
             }
+
+            return SingleInstance;
         }
 
         public void Start()
         {
-            var commands = this.ReadCommands();
-            var commandResult = this.ProcessCommands(commands);
-            this.PrintReports(commandResult);
-        }
+            var currentCommand = this.reader.ReadCommand();
 
-        private IEnumerable<IComand> ReadCommands()
-        {
-            var commands = new List<IComand>();
-
-            var currentLine = Console.ReadLine();
-
-            while (!string.IsNullOrEmpty(currentLine))
+            while (!string.IsNullOrEmpty(currentCommand))
             {
-                var currentCommand = new Command(currentLine);
-                commands.Add(currentCommand);
-                currentLine = Console.ReadLine();
+                var command = this.CommandParse(currentCommand);
+                var commandResult = this.ProcessSingleCommand(command);
+                this.logger.Log(commandResult);
+                currentCommand = this.reader.ReadCommand();
             }
-
-            return commands;
         }
 
-        private List<string> ProcessCommands(IEnumerable<IComand> commands)
+        private IComand CommandParse(string currentCommand)
+        {
+            return new Command(currentCommand);
+        }
+
+      /*private List<string> ProcessCommands(IEnumerable<IComand> commands)
         {
             var reports = new List<string>();
 
@@ -84,7 +96,7 @@
             }
 
             return reports;
-        }
+        }*/
 
         private string ProcessSingleCommand(IComand command)
         {
@@ -347,7 +359,8 @@
 
             return string.Format("There's no such skill for you to cast.");
         }
-        private void PrintReports(IList<string> reports)
+
+      /*private void PrintReports(IList<string> reports)
         {
             var output = new StringBuilder();
 
@@ -358,6 +371,6 @@
             }
 
             Console.Write(output.ToString());
-        }
+        }*/
     }
 }
