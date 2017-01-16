@@ -2,6 +2,7 @@
 {
     using DTTD.Abstract;
     using DTTD.Enums;
+    using DTTD.Exceptions;
     using DTTD.Factory;
     using System;
     public class Undead : Player, IPlayer
@@ -20,7 +21,25 @@
             this.undeadName = undeadName;
             this.HpDegeneration = InitialUndeadHpDegeneration;
         }
-    
+
+        public override string Name
+        {
+            get
+            {
+                return this.undeadName;
+            }
+
+            set
+            {
+                if (value.Substring(0, 5) != "ZomB_")
+                {
+                    throw new InvalidPlayerNameException();
+                }
+
+                this.undeadName = value;
+            }
+        }
+
         public int HpDegeneration { get; set; }
     }
 }

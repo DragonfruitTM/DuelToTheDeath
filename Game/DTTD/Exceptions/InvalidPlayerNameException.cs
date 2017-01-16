@@ -4,7 +4,7 @@
     class InvalidPlayerNameException : ApplicationException
     {
 
-        private const string DefaultMessage = "Player's name is not compatible with it's RaceType!";
+        private const string DefaultMessage = "Player's name is not compatible with it's RaceType \n(Human: HumN_(input), Ork: RazL_(input), Undead: ZomB_(input))";
 
         public InvalidPlayerNameException() : base(DefaultMessage) { }
 

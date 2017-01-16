@@ -2,6 +2,7 @@
 {
     using DTTD.Abstract;
     using DTTD.Enums;
+    using DTTD.Exceptions;
     using DTTD.Factory;
     using System;
     public class Ork : Player, IPlayer
@@ -18,6 +19,24 @@
                   , RaceType.Ork)
         {
             this.HpRegeneration = InitialOrkHpRegeneration;
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return this.orkName;
+            }
+
+            set
+            {
+                if (value.Substring(0, 5) != "RazL_")
+                {
+                    throw new InvalidPlayerNameException();
+                }
+
+                this.orkName = value;
+            }
         }
 
         public int HpRegeneration { get; set; }

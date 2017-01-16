@@ -3,7 +3,9 @@
     using DTTD.Factory;
     using DTTD.Abstract;
     using DTTD.Enums;
-    public class Human : Player,IPlayer
+    using DTTD.Exceptions;
+
+    public class Human : Player, IPlayer
     {
         private string humanName;
         private const int InitialHumanAttackPoints = 0;
@@ -13,11 +15,29 @@
 
 
         public Human(string humanName)
-            :base(humanName,InitialHumanHitPoints,InitialHumanAttackPoints
-                 ,InitialHumanDeffencePoints,RaceType.Human)
+            : base(humanName, InitialHumanHitPoints, InitialHumanAttackPoints
+                 , InitialHumanDeffencePoints, RaceType.Human)
         {
-            this.Mana = InitialHumanManaPoints;         
-        }      
+            this.Mana = InitialHumanManaPoints;
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return this.humanName;
+            }
+
+            set
+            {
+                if (value.Substring(0, 5) != "HumN_")
+                {
+                    throw new InvalidPlayerNameException();
+                }
+
+                this.humanName = value;
+            }
+        }
 
         public int Mana { get; set; }
     }
