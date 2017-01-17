@@ -10,7 +10,9 @@ namespace DuelToTheDeathApplication
         static void Main()
         {
             ICommandReader reader = new ConsoleCommandReader();
-            ILogger logger = new ConsoleLogger();
+            ILogger consoleLogger = new ConsoleLogger();
+            ILogger fileLogger = new FileLogger();
+            ILogger logger = new ExtendedConsoleLoggerWithFileLoging(consoleLogger, fileLogger);
             GameEngine.Initialise(reader, logger).Start();
         }
     }

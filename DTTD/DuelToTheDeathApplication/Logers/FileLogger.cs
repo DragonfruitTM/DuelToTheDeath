@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DuelToTheDeath.Contracts;
+﻿using DuelToTheDeath.Contracts;
+using System.IO;
 
 namespace DuelToTheDeathApplication.Logers
 {
-    class FileLogger : ILogger
+    public class FileLogger : ILogger
     {
-        private const string defaultPath = "./LogFiles/Log.txt";
-
+        private const string defaultPath = "log.txt";
         private readonly string filePath;
+        private const bool AppendToFile = true;
 
         public FileLogger (string filePath = defaultPath)
         {
@@ -25,7 +21,11 @@ namespace DuelToTheDeathApplication.Logers
 
         public void Log(string message)
         {
-            
+            using (StreamWriter streamWriter = new StreamWriter(this.filePath, AppendToFile))
+            {
+                streamWriter.AutoFlush = true;
+                streamWriter.WriteLine(message);
+            }
         }
     }
 }

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logers\ExtendedConsoleLoggerWithFileLoging.cs" />
     <Compile Include="Logers\FileLogger.cs" />
     <Compile Include="Readers\ConsoleCommandReader.cs" />
     <Compile Include="Logers\ConsoleLogger.cs" />

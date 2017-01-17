@@ -1,2 +1,197 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DuelToTheDeath.Abstract.Player" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQACAAACAAAgAgCQAAAAEAAAgAQAAAQAAAAA=</HashCode>
+      <FileName>Abstract\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.DeadPlayerEventArgs" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DeadPlayerEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DuelToTheDeath.Engine.Command" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Engine\Command.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DuelToTheDeath.Engine.GameEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAUAgCCAAQACBAAAEAAgIAABACAIIgAgAAAwAgk=</HashCode>
+      <FileName>Engine\GameEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DuelToTheDeath.Exceptions.InadequateManaPointsException" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\InadequateManaPointsException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DuelToTheDeath.Factory.PlayerFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\PlayerFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DuelToTheDeath.Class.Mage" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAgAIAQAAAKAIAAAgABAAAAACQCAAAQAAABAAAA=</HashCode>
+      <FileName>Models\Classes\Mage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Class.Rogue" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAABDAAAACACAAgEAAAIAAAAAAAEAQSAAAAAQAA=</HashCode>
+      <FileName>Models\Classes\Rogue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Class.Warrior" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAACAAAKABAEAQAAAABAAAIAQQAAAAgAEAAIAAAAA=</HashCode>
+      <FileName>Models\Classes\Warrior.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Race.Human" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAgAACAAAAAAAAABAIAAAAAA=</HashCode>
+      <FileName>Models\Races\Human.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Race.Ork" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAICAgAAAAAAACAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Races\Ork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Race.Undead" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAIgAAABAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\Races\Undead.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Struct Name="DuelToTheDeath.Models.Items.Item" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAIEABAAAAIAgAAagIAAAQAAAQAUAAARAAAQA=</HashCode>
+      <FileName>Models\Items\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Struct>
+  <Interface Name="DuelToTheDeath.Contracts.ICommandReader" Collapsed="true">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Contracts\ICommandReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.IItem" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Contracts\IItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.ILogger" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.IMageSkills" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAKAIAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IMageSkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.IPlayer" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQACAAACAAAAAgAQAAAAAAAAgAQAAAQAAAAA=</HashCode>
+      <FileName>Contracts\IPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.IRogueSkills" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABCAAAACAAAAAAAAAIAAAAAAAEAQCAAAAAAAA=</HashCode>
+      <FileName>Contracts\IRogueSkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.IWarriorSkills" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIABAEAQAAAAAAAAAAAQAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Contracts\IWarriorSkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Contracts.IComand" Collapsed="true">
+    <Position X="7.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Engine\IComand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Engine.IEngine" Collapsed="true">
+    <Position X="11" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\IEngine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DuelToTheDeath.Factory.IPlayerFactory" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\IPlayerFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DuelToTheDeath.Enums.ClassType" Collapsed="true">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAMAAAA=</HashCode>
+      <FileName>Enums\ClassType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DuelToTheDeath.Enums.ItemType" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAQAAAAAAABAAAIAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Enums\ItemType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DuelToTheDeath.Enums.RaceType" Collapsed="true">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAgAAAAAAQAAAA=</HashCode>
+      <FileName>Enums\RaceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
