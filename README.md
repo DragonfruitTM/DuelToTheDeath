@@ -3,7 +3,10 @@
 Our project is a template of a game which takes place in a fantastic world full of warriors, magicians and rogues.
 ```
 ## Tests
-At present we don't have any tests for any classes but we've planned to do tests soon.
+At present we have tests for creating a human and an Ork.
+They are in the GameEngine class and one can simply copy them from the comment section and paste them in the console.
+![test](https://cloud.githubusercontent.com/assets/22631858/22008986/81904cb8-dc88-11e6-815b-cec3ee7181cb.png)
+
 ## Built With
 * [C#]
 
