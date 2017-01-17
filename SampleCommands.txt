@@ -6,3 +6,4 @@ Equip Ilia Hammer
 Equip Daniel Sword
 Cast Ilia Heal Antonii
 Cast Daniel SwordAttack Ilia
+Cast Ilia BlackMagicAttack Antonii

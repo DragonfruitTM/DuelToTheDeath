@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{425375E8-43DB-4F34-A69F-64434B930325}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{5641BC56-2738-4431-B966-E94C9F57BA4D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DuelToTheDeathApplication</RootNamespace>
-    <AssemblyName>DuelToTheDeathApplication</AssemblyName>
+    <RootNamespace>DTTD</RootNamespace>
+    <AssemblyName>DTTD</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,20 +46,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logers\FileLogger.cs" />
-    <Compile Include="Readers\ConsoleCommandReader.cs" />
-    <Compile Include="Logers\ConsoleLogger.cs" />
-    <Compile Include="StartUP.cs" />
+    <Compile Include="DeadPlayerEventArgs.cs" />
+    <Compile Include="Abstract\Player.cs" />
+    <Compile Include="Contracts\ICommandReader.cs" />
+    <Compile Include="Contracts\ILogger.cs" />
+    <Compile Include="Engine\GameEngine.cs" />
+    <Compile Include="Engine\IComand.cs" />
+    <Compile Include="Engine\IEngine.cs" />
+    <Compile Include="Enums\ClassType.cs" />
+    <Compile Include="Enums\ItemType.cs" />
+    <Compile Include="Enums\RaceType.cs" />
+    <Compile Include="Exceptions\InadequateManaPointsException.cs" />
+    <Compile Include="Models\Items\Item.cs" />
+    <Compile Include="Models\Races\Human.cs" />
+    <Compile Include="Models\Races\Ork.cs" />
+    <Compile Include="Models\Races\Undead.cs" />
+    <Compile Include="Models\Classes\Mage.cs" />
+    <Compile Include="Models\Classes\Rogue.cs" />
+    <Compile Include="Models\Classes\Warrior.cs" />
+    <Compile Include="Engine\Command.cs" />
+    <Compile Include="Contracts\IPlayer.cs" />
+    <Compile Include="Factory\IPlayerFactory.cs" />
+    <Compile Include="Factory\PlayerFactory.cs" />
+    <Compile Include="Contracts\IMageSkills.cs" />
+    <Compile Include="Contracts\IRogueSkills.cs" />
+    <Compile Include="Contracts\IWarriorSkills.cs" />
+    <Compile Include="Contracts\IItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DTTD\DuelToTheDeath.csproj">
-      <Project>{5641bc56-2738-4431-b966-e94c9f57ba4d}</Project>
-      <Name>DuelToTheDeath</Name>
-    </ProjectReference>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

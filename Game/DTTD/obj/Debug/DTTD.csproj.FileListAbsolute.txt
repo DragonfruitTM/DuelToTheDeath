@@ -10,3 +10,9 @@ C:\Users\Ilia\Desktop\GIT1\DuelToTheDeath\Game\DTTD\obj\Debug\DTTD.pdb
 C:\Users\Ilia\Desktop\GIT1\DuelToTheDeath\Game\DTTD\bin\Debug\DTTD.exe
 C:\Users\Ilia\Desktop\GIT1\DuelToTheDeath\Game\DTTD\bin\Debug\DTTD.pdb
 C:\Users\Ilia\Desktop\GIT1\DuelToTheDeath\Game\DTTD\obj\Debug\DTTD.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\junk\Progress\OOP\TeamWork\DuelToTheDeath\Game\DTTD\bin\Debug\DTTD.exe.config
+C:\Users\user\Documents\junk\Progress\OOP\TeamWork\DuelToTheDeath\Game\DTTD\obj\Debug\DTTD.exe
+C:\Users\user\Documents\junk\Progress\OOP\TeamWork\DuelToTheDeath\Game\DTTD\obj\Debug\DTTD.pdb
+C:\Users\user\Documents\junk\Progress\OOP\TeamWork\DuelToTheDeath\Game\DTTD\bin\Debug\DTTD.exe
+C:\Users\user\Documents\junk\Progress\OOP\TeamWork\DuelToTheDeath\Game\DTTD\bin\Debug\DTTD.pdb
+C:\Users\user\Documents\junk\Progress\OOP\TeamWork\DuelToTheDeath\Game\DTTD\obj\Debug\DTTD.csprojResolveAssemblyReference.cache

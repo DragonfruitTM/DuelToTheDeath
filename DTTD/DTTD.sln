@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTTD", "DTTD\DTTD.csproj", "{5641BC56-2738-4431-B966-E94C9F57BA4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuelToTheDeath", "DTTD\DuelToTheDeath.csproj", "{5641BC56-2738-4431-B966-E94C9F57BA4D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuelToTheDeathApplication", "DuelToTheDeathApplication\DuelToTheDeathApplication.csproj", "{425375E8-43DB-4F34-A69F-64434B930325}"
 EndProject

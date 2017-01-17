@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DTTD.Abstract.Player" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAACAAAAABCQAAAAEAAAAAQAAAQAAAAA=</HashCode>
+      <FileName>Abstract\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DTTD.Engine.Command" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Engine\Command.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DTTD.Engine.GameEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAUAgCAAAQACBAAAEAAgAAABACAIIgAgAAAwAgk=</HashCode>
+      <FileName>Engine\GameEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DTTD.Exceptions.InvalidPlayerNameException" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\InvalidPlayerNameException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTTD.Factory.ItemFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAAAAAAQAAAAAAAAIAAAAAAAAAAAAQAg=</HashCode>
+      <FileName>Factory\ItemFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DTTD.Factory.PlayerFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\PlayerFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DuelToTheDeath.Class.Mage" Collapsed="true">
+    <Position X="5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAKAIAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Classes\Mage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Class.Rogue" Collapsed="true">
+    <Position X="2.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABCAAAACAAAAAAAAAIAAAAAAAEAQCAAAAAAAA=</HashCode>
+      <FileName>Models\Classes\Rogue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Class.Warrior" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIABAEAQAAAAAAAAAAAQAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\Classes\Warrior.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DTTD.Items.Armor" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Items\Armor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTTD.Items.Weapons.Axe" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Items\Weapons\Axe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTTD.Items.Weapons.Bow" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Items\Weapons\Bow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTTD.Items.Weapons.Hammer" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Items\Weapons\Hammer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTTD.Items.Weapons.Knife" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Items\Weapons\Knife.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTTD.Items.Weapons.Sword" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Items\Weapons\Sword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DuelToTheDeath.Race.Human" Collapsed="true">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAgAACAAAAAAAAABQIAAAAAA=</HashCode>
+      <FileName>Models\Races\Human.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Race.Ork" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAQAAAAAAAIAAgAAAAAAACAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Races\Ork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DuelToTheDeath.Race.Undead" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAIgAAABAAAAABAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Models\Races\Undead.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DTTD.Contracts.ICommandReader" Collapsed="true">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Contracts\ICommandReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.IItem" Collapsed="true">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.ILogger" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.IMageSkills" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAKAIAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IMageSkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.IPlayer" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAACAAAAABAQAAAAAAAAAAQAAAQAAAAA=</HashCode>
+      <FileName>Contracts\IPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.IRogueSkills" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABCAAAACAAAAAAAAAIAAAAAAAEAQCAAAAAAAA=</HashCode>
+      <FileName>Contracts\IRogueSkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.IWarriorSkills" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIABAEAQAAAAAAAAAAAQAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Contracts\IWarriorSkills.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Contracts.IComand" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Engine\IComand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Engine.IEngine" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\IEngine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Factory.IItemFactory" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAQAAAAAAAAAAQAAAAAAAAIAAAAAAAAAAAAQAg=</HashCode>
+      <FileName>Factory\IItemFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DTTD.Factory.IPlayerFactory" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAIAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factory\IPlayerFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DTTD.Enums.ClassType" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Enums\ClassType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DTTD.Enums.RaceType" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAgAAAAAAQAAAA=</HashCode>
+      <FileName>Enums\RaceType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DuelToTheDeath.Common.Enum.WeaponType" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgCAAAAAAAAAQAAAAAAABAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\WeaponType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
